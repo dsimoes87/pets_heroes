@@ -13,7 +13,7 @@
 	font-size: inherit;
 }
 .link {
-  color: #004d40;
+  color: #ffffff;
 }
 .menu{
   margin-left: 300px;
@@ -36,4 +36,21 @@
 {
   font-weight: 700;
   font-family: 'Rammetto One', cursive;
+}
+.section h3{
+  font-family: 'Rammetto One', cursive;
+  text-align: center;
+}
+.img-pet{
+  margin-bottom: 20px;
+}
+.img-pet img{
+  object-fit: cover;
+  height: 200px;
+  width: 300px;
+  max-width: 100%;
+}
+
+.footer{
+  padding: 2%;
 }
