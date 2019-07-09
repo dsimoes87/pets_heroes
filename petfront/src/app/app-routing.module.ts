@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FormcadastroComponent } from './usuarios/formcadastro/formcadastro.component';
 import { FormloginComponent } from './usuarios/formlogin/formlogin.component';
+import { DashboardComponent } from './usuarios/dashboard/dashboard.component';
+import { CadastroPetComponent } from './pets/cadastro-pet/cadastro-pet.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: FormloginComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'cadastrar-pet/:id',
+    component: CadastroPetComponent
   }
 ];
 

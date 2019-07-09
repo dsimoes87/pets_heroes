@@ -7,12 +7,16 @@ import { FormloginComponent } from './formlogin/formlogin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UsuariosService } from './usuarios.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TopoLogadoComponent } from './topo-logado/topo-logado.component';
 
 @NgModule({
   declarations: [
     UsuariosComponent,
     FormcadastroComponent,
-    FormloginComponent
+    FormloginComponent,
+    DashboardComponent,
+    TopoLogadoComponent
   ],
   imports: [
   CommonModule,
@@ -21,7 +25,8 @@ import { UsuariosService } from './usuarios.service';
   FormsModule
   ],
   exports:[
-    UsuariosComponent
+    UsuariosComponent,
+    TopoLogadoComponent
   ],
   providers:[
     UsuariosService

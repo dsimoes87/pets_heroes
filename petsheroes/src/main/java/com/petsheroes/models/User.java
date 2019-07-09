@@ -1,11 +1,13 @@
 package com.petsheroes.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User implements Serializable {
@@ -14,6 +16,10 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long idUser;
+	
+	@OneToMany
+	private List<Pet> pets;
+	
 	
 	private String nomeUser;
 	private String emailUser;

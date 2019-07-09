@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { PetsModule } from './pets/pets.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,12 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     MenuMobileComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    UsuariosModule
+    UsuariosModule,
+    PetsModule
   ],
   providers: [AppRoutingModule],
   bootstrap: [AppComponent]
