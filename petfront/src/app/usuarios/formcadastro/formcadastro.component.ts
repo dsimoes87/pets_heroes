@@ -17,7 +17,7 @@ export class FormcadastroComponent implements OnInit {
   }
   cadastrarUsuario(){
     this.usuariosService.cadastrarUsuario(this.usuario).subscribe(usuario =>{
-      this.route.navigate(['/dashboard']);
+      this.route.navigate(['/login']);
     }, err =>{
       this.erro = "Erro ao cadastrar";
       this.usuario = new UsuarioModel;

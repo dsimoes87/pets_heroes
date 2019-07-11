@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { loginModel } from './../login.model';
+import { UsuariosService } from '../usuarios.service';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+import { UsuarioModel } from './../usuario.model';
 
 @Component({
   selector: 'app-formlogin',
@@ -6,10 +11,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formlogin.component.css']
 })
 export class FormloginComponent implements OnInit {
-
-  constructor() { }
+  userLogin : loginModel = new loginModel();
+  mensagem;
+  constructor(private usuariosService : UsuariosService, private route: Router) { }
 
   ngOnInit() {
   }
-
+  fazerLogin(){
+    this.usuariosService.fazerLogin(this.userLogin).subscribe(id =>{
+        this.route.navigate(['/dashboard', id]);
+    }, err=>{
+      this.mensagem = "Usuario ou senha inválidos";
+      this.route.navigate(['/login', this.mensagem]);
+    });
+  }
 }

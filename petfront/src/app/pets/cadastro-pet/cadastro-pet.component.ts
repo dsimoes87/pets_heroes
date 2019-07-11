@@ -16,12 +16,13 @@ export class CadastroPetComponent implements OnInit {
               private petsService: PetsService) { }
 
   ngOnInit() {
-    this.idUser = +this.route.snapshot.paramMap.get('id');
+    this.idUser = +this.route.snapshot.paramMap.get('idUser');
   }
   cadastrarPet(){
     this.petsService.cadastrarpet(this.idUser,this.pet).subscribe(pet =>{
       this.pet = new petModel();
       console.log("cadastrado com sucesso!");
+      this.router.navigate(['/dashboard', this.idUser]);
     }, err =>{
       console.log("Erro ao cadastrar pet");
     }

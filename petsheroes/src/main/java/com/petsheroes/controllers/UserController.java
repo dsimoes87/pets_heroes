@@ -44,5 +44,17 @@ public class UserController {
 		userRepository.delete(user);
 		return true;	
 	}
+	@PostMapping("/user/login")
+	public long loginUser(@RequestBody User userlogin) {
+		User user = userRepository.findByEmailUser(userlogin.getEmailUser());
+		if(user == null) {
+			throw new RuntimeException ("User error");
+		}
+		if(!user.getSenha().equals(userlogin.getSenha())) {
+			throw new RuntimeException ("Password error");
+		}
+		return (user.getIdUser());
+		
+	}
 		
 }

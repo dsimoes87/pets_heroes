@@ -6,4 +6,5 @@ import com.petsheroes.models.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	User findById(long idUser);
+	User findByEmailUser(String emailUser);
 }

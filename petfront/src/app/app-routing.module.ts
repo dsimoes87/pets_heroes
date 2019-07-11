@@ -20,11 +20,11 @@ const routes: Routes = [
     component: FormloginComponent
   },
   {
-    path: 'dashboard',
+    path: 'dashboard/:id',
     component: DashboardComponent
   },
   {
-    path: 'cadastrar-pet/:id',
+    path: 'cadastrar-pet/:idUser',
     component: CadastroPetComponent
   }
 ];

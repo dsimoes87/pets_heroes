@@ -1,24 +1,21 @@
 <app-topo-logado></app-topo-logado>
+<section>
 <div class="container">
   <br />
   <br />
-  <div class="row">
+  <div><p>{{ mensagem }}</p></div>
+  <div class="row" *ngFor="let pet  of pets">
     <div class="col s12 m3">
-      <p>Meu anuncio!</p>
-    </div>
-    <div class="col s12 m3">
-      <p>Meu anuncio!</p>
-    </div>
-    <div class="col s12 m3">
-      <p>Meu anuncio!</p>
-    </div>
-    <div class="col s12 m3">
-      <p>Meu anuncio!</p>
+      <p>{{ pet.nomePet }} 
+        <a (click)="deletarPet(pet.idPet)" class="waves-effect waves-teal btn-flat"> <i class="material-icons">delete</i></a>
+        <a [routerLink]="['/editar-pet/', pet.idPet]" class="waves-effect waves-teal btn-flat"> <i class="material-icons">edit</i></a>
+      </p>
     </div>
     <br />
     <br />
-    <div class="row center">
-      <a [routerLink]="['/cadastrar-pet/', id]" class="btn-large waves-effect waves-light orange">Novo anuncio</a>
-    </div>
+  </div>
+  <div class="row center">
+    <a [routerLink]="['/cadastrar-pet/', idUser]" class="btn-large waves-effect waves-light orange">Novo anuncio</a>
   </div>
 </div>
+</section>
