@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UsuariosService } from './usuarios.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TopoLogadoComponent } from './topo-logado/topo-logado.component';
 import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
     FormcadastroComponent,
     FormloginComponent,
     DashboardComponent,
-    TopoLogadoComponent,
     EditUsuarioComponent
   ],
   imports: [
@@ -28,7 +26,6 @@ import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
   ],
   exports:[
     UsuariosComponent,
-    TopoLogadoComponent,
     FormloginComponent
   ],
   providers:[
