@@ -35,7 +35,14 @@ export class EditUsuarioComponent implements OnInit {
     }, err => {
       console.log("erro ao editar cadastro");
       this.mensagem = "Falha ao alterar!";
-    })
+    });
+  }
+  excluirCadastro(){
+    this.usuariosService.excluirUsuario(this.idUser).subscribe(user =>{
+      this.router.navigate(['/']);
+    }, err =>{
+      this.mensagem = "Falha ao excluir!";
+    });
   }
 
 }

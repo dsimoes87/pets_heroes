@@ -26,4 +26,7 @@ export class UsuariosService {
   alterarUsuario(idUser , usuario : UsuarioModel): Observable<any>{
     return this.http.put("http://localhost:8080/api/user/edit/"+idUser, usuario);
   }
+  excluirUsuario(idUser): Observable<any>{
+    return this.http.delete("http://localhost:8080/api/user/" + idUser);
+  }
 }

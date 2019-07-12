@@ -39,8 +39,9 @@ public class UserController {
 	public User alterUser(@RequestBody User user) {
 		return userRepository.save(user);
 	}
-	@DeleteMapping("/user")
-	public boolean deleteUser(@RequestBody User user) {
+	@DeleteMapping("/user/{idUser}")
+	public boolean deleteUser(@PathVariable(value="idUser") long idUser) {
+		User user = userRepository.findById(idUser);
 		userRepository.delete(user);
 		return true;	
 	}
