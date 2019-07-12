@@ -10,6 +10,7 @@ import { petModel } from '../pet.model';
 })
 export class EditarPetComponent implements OnInit {
   idPet;
+  idUser;
   pet : petModel = new petModel();
   constructor(private router: Router, 
     private route: ActivatedRoute,
@@ -22,6 +23,8 @@ export class EditarPetComponent implements OnInit {
   dadosPet(){
     this.petsService.dadosPet(this.idPet).subscribe(pet =>{
       this.pet = pet;
+      this.idUser = pet.user.idUser;
+      console.log(this.idUser);
     }, err =>{
       console.log("Não foi possivel localizar o cadastro");
     });

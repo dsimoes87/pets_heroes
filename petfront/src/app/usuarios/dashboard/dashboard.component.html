@@ -18,8 +18,8 @@
     </nav>
   </div>
   <ul class="sidenav" id="mobile-demo">
-      <li><a class="link" href="#">Meus anúncios</a></li>
-      <li><a class="link" href="#">Meu perfil</a></li>
+    <li><a class="link" [routerLink]="['/dashboard/', idUser]">Meus anúncios</a></li>
+    <li><a class="link" [routerLink]="['/dashboard/perfil/', idUser]">Meu perfil</a></li>
       <li><a routerLink="/login" class="small waves-effect waves-light btn teal">Sair</a></li>
     </ul>
 <section>
