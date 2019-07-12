@@ -1,0 +1,81 @@
+
+<div class="navbar-fixed">
+  <nav class="grey lighten-4 topo" role="navigation">
+      <div class="nav-wrapper">
+        <div class="logo">
+        <a routerLink="/" class="brand-logo"> <img src="assets/images/logo_p_pets.png"/> </a>
+        <a routerLink="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons teal-text">menu</i></a>
+        </div>
+        <div class="menu">
+            <ul class="left hide-on-med-and-down">
+              <li><a class="link" [routerLink]="['/dashboard/', idUser]">Meus anúncios</a></li>
+              <li><a class="link" [routerLink]="['/dashboard/perfil/', idUser]">Meu perfil</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+              <li><a routerLink="/login" class="small waves-effect waves-light btn teal">Sair</a></li>
+            </ul>
+            </div>
+      </div>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobile-demo">
+      <li><a class="link" href="#">Meus anúncios</a></li>
+      <li><a class="link" href="#">Meu perfil</a></li>
+      <li><a routerLink="/login" class="small waves-effect waves-light btn teal">Sair</a></li>
+    </ul>
+<section>
+<div class="container">
+    
+    <div class="grey lighten-4 container form">
+        <h3 class="teal-text">Cadastro</h3>
+  <br/>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nomeUser" [(ngModel)]="usuario.nomeUser">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="emailUser" [(ngModel)]="usuario.emailUser">
+      <label for="senha">Senha:</label>
+      <input type="text" id="senha" name="senha" [(ngModel)]="usuario.senha">
+      <label for="telefone">Telefone:</label>
+      <input type="text" id="telefone" name="telefone" [(ngModel)]="usuario.telefone">
+      <div class="row center">
+      <div class="input-field col s6 m6" >
+      <label for="pessoa">
+          <input class="with-gap" name="tipo" id="pessoa" value="pessoa" type="radio" [(ngModel)]="usuario.tipo" />
+          <span>Pessoa</span>
+      </label>
+      </div>
+      <div class="input-field col s6 m6" >
+      <label for="instituicao">
+          <input class="with-gap" name="tipo" id="instituicao" value="instituicao" type="radio" [(ngModel)]="usuario.tipo" />
+          <span>Instituição</span>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+      <div class="input-field col s12 m6" >
+          <select class="browser-default">
+            <option value="" >Choose your option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+        <div class="input-field col s12 m6">
+            <select class="browser-default">
+              <option value="">Choose your option</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+          </div>
+        </div> 
+  <br /> <br />
+  <div class="row center">  
+  <button (click)="alterarUsuario()"  class="btn-large waves-effect waves-light orange">Alterar</button>
+  </div>
+  </form>
+  <div><p> {{ mensagem }} </p></div>
+  </div>
+</div>
+</section>

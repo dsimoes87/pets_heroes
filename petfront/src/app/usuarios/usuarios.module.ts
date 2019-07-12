@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { UsuariosService } from './usuarios.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopoLogadoComponent } from './topo-logado/topo-logado.component';
+import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TopoLogadoComponent } from './topo-logado/topo-logado.component';
     FormcadastroComponent,
     FormloginComponent,
     DashboardComponent,
-    TopoLogadoComponent
+    TopoLogadoComponent,
+    EditUsuarioComponent
   ],
   imports: [
   CommonModule,
@@ -26,10 +28,12 @@ import { TopoLogadoComponent } from './topo-logado/topo-logado.component';
   ],
   exports:[
     UsuariosComponent,
-    TopoLogadoComponent
+    TopoLogadoComponent,
+    FormloginComponent
   ],
   providers:[
-    UsuariosService
+    UsuariosService,
+    FormloginComponent
   ]
 })
 export class UsuariosModule { }

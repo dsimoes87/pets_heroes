@@ -6,6 +6,7 @@ import { FormloginComponent } from './usuarios/formlogin/formlogin.component';
 import { DashboardComponent } from './usuarios/dashboard/dashboard.component';
 import { CadastroPetComponent } from './pets/cadastro-pet/cadastro-pet.component';
 import { EditarPetComponent } from './pets/editar-pet/editar-pet.component';
+import { EditUsuarioComponent } from './usuarios/edit-usuario/edit-usuario.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,7 @@ const routes: Routes = [
     component: FormloginComponent
   },
   {
-    path: 'dashboard/:id',
+    path: 'dashboard/:idUser',
     component: DashboardComponent
   },
   {
@@ -31,12 +32,16 @@ const routes: Routes = [
   {
     path: 'editar-pet/:idPet',
     component: EditarPetComponent
+  },
+  {
+    path: 'dashboard/perfil/:idUser',
+    component: EditUsuarioComponent
   }
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -24,14 +24,14 @@ export class EditarPetComponent implements OnInit {
       this.pet = pet;
     }, err =>{
       console.log("Não foi possivel localizar o cadastro");
-    })
+    });
   }
   editarPet(){
     this.petsService.editarPet(this.idPet, this.pet).subscribe(result =>{
       this.router.navigate(['/dashboard/', result.idUser]);
     }, err=>{
       console.log("Erro ao editar")
-    })
+    });
   }
 
 }

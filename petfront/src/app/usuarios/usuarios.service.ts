@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsuarioModel } from './usuario.model';
@@ -21,5 +21,9 @@ export class UsuariosService {
   }
   fazerLogin(loginUser : loginModel) : Observable<any>{
     return this.http.post("http://localhost:8080/api/user/login", loginUser);
+    
+  }
+  alterarUsuario(idUser , usuario : UsuarioModel): Observable<any>{
+    return this.http.put("http://localhost:8080/api/user/edit/"+idUser, usuario);
   }
 }

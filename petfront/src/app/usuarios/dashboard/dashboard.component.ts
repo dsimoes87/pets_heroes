@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
     private route: ActivatedRoute,
     private petsService: PetsService) { }
   ngOnInit() {
-    this.idUser = this.route.snapshot.paramMap.get('id');
+    this.idUser = this.route.snapshot.paramMap.get('idUser');
     this.petsByUser();
   }
   petsByUser(){

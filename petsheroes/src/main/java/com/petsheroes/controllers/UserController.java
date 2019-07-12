@@ -56,5 +56,14 @@ public class UserController {
 		return (user.getIdUser());
 		
 	}
+	@PutMapping("/user/edit/{idUser}")
+	public User editUser(@PathVariable(value="idUser") long idUser,@RequestBody User userAlter) {
+		User user = userRepository.findById(idUser);
+		userAlter.setIdUser(user.getIdUser());
+		user = userAlter;
+		return userRepository.save(user);
+		
+		
+	}
 		
 }
