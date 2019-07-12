@@ -5,6 +5,7 @@ import { FormcadastroComponent } from './usuarios/formcadastro/formcadastro.comp
 import { FormloginComponent } from './usuarios/formlogin/formlogin.component';
 import { DashboardComponent } from './usuarios/dashboard/dashboard.component';
 import { CadastroPetComponent } from './pets/cadastro-pet/cadastro-pet.component';
+import { EditarPetComponent } from './pets/editar-pet/editar-pet.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,12 @@ const routes: Routes = [
   {
     path: 'cadastrar-pet/:idUser',
     component: CadastroPetComponent
+  },
+  {
+    path: 'editar-pet/:idPet',
+    component: EditarPetComponent
   }
+
 ];
 
 @NgModule({

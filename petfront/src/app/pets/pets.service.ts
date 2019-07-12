@@ -12,13 +12,19 @@ export class PetsService {
   listarPets(): Observable<any>{
     return this.http.get("http://localhost:8080/api/pets");
   }
+  dadosPet(idPet) : Observable<any>{
+    return this.http.get('http://localhost:8080/api/pets/'+ idPet);
+  }
   cadastrarpet(idUser, pet : petModel): Observable<any>{
     return this.http.post('http://localhost:8080/api/pets/'+ idUser, pet);
   }
   petsByUser(idUser): Observable<any>{
-    return this.http.get('http://localhost:8080/api/pets/'+ idUser);
+    return this.http.get('http://localhost:8080/api/pets/lista/'+ idUser);
   }
   deletarPet(idPet) : Observable<any>{
     return this.http.delete('http://localhost:8080/api/pets/'+ idPet);
+  }
+  editarPet(idPet, pet: petModel): Observable<any>{
+    return this.http.put('http://localhost:8080/api/pets/edit/'+ idPet, pet);
   }
 }

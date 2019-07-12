@@ -7,9 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { CadastroPetComponent } from './cadastro-pet/cadastro-pet.component';
 import { UsuariosModule } from '../usuarios/usuarios.module';
+import { EditarPetComponent } from './editar-pet/editar-pet.component';
 
 @NgModule({
-  declarations: [PetsComponent, CadastroPetComponent],
+  declarations: [PetsComponent, CadastroPetComponent, EditarPetComponent],
   imports: [
     CommonModule,
     AppRoutingModule,
