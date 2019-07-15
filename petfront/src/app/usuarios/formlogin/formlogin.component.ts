@@ -20,8 +20,9 @@ export class FormloginComponent implements OnInit {
     this.usuariosService.fazerLogin(this.userLogin).subscribe(idUser =>{
         this.route.navigate(['/dashboard', idUser]);
     }, err=>{
-      this.mensagem = "Usuario ou senha inválidos";
+      this.mensagem = err.error.message;
       this.route.navigate(['/login', this.mensagem]);
-    });
+      }
+    );
   }
 }
