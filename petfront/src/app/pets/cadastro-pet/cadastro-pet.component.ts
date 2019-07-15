@@ -10,6 +10,7 @@ import { petModel } from '../pet.model';
 })
 export class CadastroPetComponent implements OnInit {
   pet : petModel = new petModel;
+  erro;
   private idUser;
   constructor(private router: Router, 
               private route: ActivatedRoute,
@@ -24,7 +25,9 @@ export class CadastroPetComponent implements OnInit {
       console.log("cadastrado com sucesso!");
       this.router.navigate(['/dashboard', this.idUser]);
     }, err =>{
-      console.log("Erro ao cadastrar pet");
+      this.erro = err.error.message;
+      console.log(this.erro);
+      this.router.navigate(['/dashboard'+ this.idUser, this.erro]);
     }
     )}
 

@@ -3,11 +3,14 @@ package com.petsheroes.models;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 public class User implements Serializable {
@@ -20,13 +23,19 @@ public class User implements Serializable {
 	@OneToMany
 	private List<Pet> pets;
 	
-	
+	@NotEmpty
 	private String nomeUser;
+	
+	@NotEmpty
+	@Column(unique=true)
 	private String emailUser;
+
 	private String senha;
 	private String telefone;
 	private String cidade;
 	private String estado;
+	
+	@NotEmpty
 	private String tipo;
 	public long getIdUser() {
 		return idUser;

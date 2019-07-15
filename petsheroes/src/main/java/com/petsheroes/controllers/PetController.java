@@ -2,7 +2,10 @@ package com.petsheroes.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +42,10 @@ public class PetController {
 	}
 	
 	@PostMapping("/pets/{idUser}")
-	public String cadPet(@PathVariable(value="idUser") long idUser, @RequestBody Pet pet) {
+	public String cadPet(@PathVariable(value="idUser") long idUser, @Valid @RequestBody Pet pet, BindingResult result) {
+		if(result.hasErrors()) {
+			throw new RuntimeException ("Verifique os dados");
+		}
 		User user = userRepository.findById(idUser);
 		pet.setUser(user);
 		petRepository.save(pet);	

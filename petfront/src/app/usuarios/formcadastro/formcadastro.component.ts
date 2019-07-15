@@ -12,15 +12,15 @@ export class FormcadastroComponent implements OnInit {
 
   constructor(private usuariosService : UsuariosService, private route: Router ) { }
   usuario: UsuarioModel = new UsuarioModel();
-  erro: String;
+  erro;
   ngOnInit() {
   }
   cadastrarUsuario(){
     this.usuariosService.cadastrarUsuario(this.usuario).subscribe(usuario =>{
       this.route.navigate(['/login']);
     }, err =>{
-      this.erro = "Erro ao cadastrar";
-      this.usuario = new UsuarioModel;
+      this.erro = err.error.message;
+      console.log(this.erro);
       this.route.navigate(['/cadastro', this.erro]);
     });
     

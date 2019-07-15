@@ -36,10 +36,6 @@ const routes: Routes = [
   {
     path: 'dashboard/perfil/:idUser',
     component: EditUsuarioComponent
-  },
-  {
-    path: '**', 
-    redirectTo: ''
   }
 
 

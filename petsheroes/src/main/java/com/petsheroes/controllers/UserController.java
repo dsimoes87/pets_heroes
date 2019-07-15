@@ -2,7 +2,10 @@ package com.petsheroes.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +35,10 @@ public class UserController {
 		return userRepository.findById(idUser);
 	}
 	@PostMapping("/user")
-	public User sendUser(@RequestBody User user) {
+	public User sendUser(@Valid @RequestBody User user, BindingResult result) {
+		if(result.hasErrors()) {
+			throw new RuntimeException ("Verifique os dados");
+		}
 		return userRepository.save(user);
 	}
 	@PutMapping("/user")

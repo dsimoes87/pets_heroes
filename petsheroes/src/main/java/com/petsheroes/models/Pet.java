@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Pet implements Serializable {
@@ -18,12 +20,26 @@ public class Pet implements Serializable {
 	@ManyToOne
 	private User user;
 	
+	@NotEmpty
 	private String nomePet;
+	@NotNull
 	private int idade;
+	@NotEmpty
 	private String compIdade;
+	@NotEmpty
 	private String porte;
+	
 	private String cidade;
+	
 	private String estado;
+	
+	private String sexo;
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
 	public long getIdPet() {
 		return idPet;
 	}
