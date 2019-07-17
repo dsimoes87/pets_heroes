@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioModel } from '../usuario.model';
 import { UsuariosService } from '../usuarios.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'user-formcadastro',
@@ -10,18 +10,18 @@ import { Router } from '@angular/router';
 })
 export class FormcadastroComponent implements OnInit {
 
-  constructor(private usuariosService : UsuariosService, private route: Router ) { }
+  constructor(private usuariosService : UsuariosService, private route: Router, private router: ActivatedRoute ) { }
   usuario: UsuarioModel = new UsuarioModel();
-  erro;
+  mensagem
   ngOnInit() {
+    this.mensagem = this.router.snapshot.params.mensagem;
   }
   cadastrarUsuario(){
     this.usuariosService.cadastrarUsuario(this.usuario).subscribe(usuario =>{
       this.route.navigate(['/login']);
     }, err =>{
-      this.erro = err.error.message;
-      console.log(this.erro);
-      this.route.navigate(['/cadastro', this.erro]);
+      this.mensagem = err.error.message;
+      this.route.navigate(['/cadastro', {mensagem:this.mensagem}]);
     });
     
   }

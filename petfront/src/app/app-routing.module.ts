@@ -7,6 +7,7 @@ import { DashboardComponent } from './usuarios/dashboard/dashboard.component';
 import { CadastroPetComponent } from './pets/cadastro-pet/cadastro-pet.component';
 import { EditarPetComponent } from './pets/editar-pet/editar-pet.component';
 import { EditUsuarioComponent } from './usuarios/edit-usuario/edit-usuario.component';
+import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
   {
@@ -23,19 +24,27 @@ const routes: Routes = [
   },
   {
     path: 'dashboard/:idUser',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'cadastrar-pet/:idUser',
-    component: CadastroPetComponent
+    component: CadastroPetComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'editar-pet/:idPet',
-    component: EditarPetComponent
+    component: EditarPetComponent,
+    canActivate: [UserGuard]
   },
   {
     path: 'dashboard/perfil/:idUser',
-    component: EditUsuarioComponent
+    component: EditUsuarioComponent,
+    canActivate: [UserGuard]
+  },
+  {
+    path: '**',
+    component: HomeComponent
   }
 
 

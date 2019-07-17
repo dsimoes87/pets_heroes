@@ -7,26 +7,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
-import { MenuMobileComponent } from './menu-mobile/menu-mobile.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { PetsModule } from './pets/pets.module';
+import { AuthService } from './usuarios/auth.service';
+import { FormloginComponent } from './usuarios/formlogin/formlogin.component';
+import { MenuLogadoComponent } from './menu-logado/menu-logado.component';
+import { BotoesComponent } from './botoes/botoes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    MenuMobileComponent
+    MenuLogadoComponent,
+    BotoesComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     UsuariosModule,
     PetsModule
   ],
-  providers: [AppRoutingModule],
+  providers: [
+    AppRoutingModule,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

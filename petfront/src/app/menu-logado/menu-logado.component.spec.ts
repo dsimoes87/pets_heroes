@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuMobileComponent } from './menu-mobile.component';
+import { MenuLogadoComponent } from './menu-logado.component';
 
-describe('MenuMobileComponent', () => {
-  let component: MenuMobileComponent;
-  let fixture: ComponentFixture<MenuMobileComponent>;
+describe('MenuLogadoComponent', () => {
+  let component: MenuLogadoComponent;
+  let fixture: ComponentFixture<MenuLogadoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuMobileComponent ]
+      declarations: [ MenuLogadoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuMobileComponent);
+    fixture = TestBed.createComponent(MenuLogadoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -19,10 +19,6 @@ export class UsuariosService {
   buscarUsuario(id: number): Observable<any>{
     return this.http.get(`http://localhost:8080/api/user/${id}`);
   }
-  fazerLogin(loginUser : loginModel) : Observable<any>{
-    return this.http.post("http://localhost:8080/api/user/login", loginUser);
-    
-  }
   alterarUsuario(idUser , usuario : UsuarioModel): Observable<any>{
     return this.http.put("http://localhost:8080/api/user/edit/"+idUser, usuario);
   }

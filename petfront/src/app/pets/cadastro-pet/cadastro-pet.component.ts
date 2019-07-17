@@ -11,6 +11,7 @@ import { petModel } from '../pet.model';
 export class CadastroPetComponent implements OnInit {
   pet : petModel = new petModel;
   erro;
+  mensagem;
   private idUser;
   constructor(private router: Router, 
               private route: ActivatedRoute,
@@ -18,6 +19,7 @@ export class CadastroPetComponent implements OnInit {
 
   ngOnInit() {
     this.idUser = +this.route.snapshot.paramMap.get('idUser');
+    this.mensagem = this.route.snapshot.params.mensagem;
   }
   cadastrarPet(){
     this.petsService.cadastrarpet(this.idUser,this.pet).subscribe(pet =>{
@@ -25,9 +27,8 @@ export class CadastroPetComponent implements OnInit {
       console.log("cadastrado com sucesso!");
       this.router.navigate(['/dashboard', this.idUser]);
     }, err =>{
-      this.erro = err.error.message;
-      console.log(this.erro);
-      this.router.navigate(['/dashboard'+ this.idUser, this.erro]);
+      this.mensagem = err.error.message;
+      this.router.navigate(['/cadastrar-pet', this.idUser, {mensagem:this.mensagem}]);
     }
     )}
 

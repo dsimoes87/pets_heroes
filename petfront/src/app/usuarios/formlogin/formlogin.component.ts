@@ -1,9 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { loginModel } from './../login.model';
-import { UsuariosService } from '../usuarios.service';
-import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
-import { UsuarioModel } from './../usuario.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from './../auth.service';
 
 @Component({
   selector: 'app-formlogin',
@@ -13,16 +11,13 @@ import { UsuarioModel } from './../usuario.model';
 export class FormloginComponent implements OnInit {
   userLogin : loginModel = new loginModel();
   mensagem;
-  constructor(private usuariosService : UsuariosService, private route: Router) { }
+  constructor(private authService : AuthService, private route: ActivatedRoute, private router: Router) { }
   ngOnInit() {
   }
   fazerLogin(){
-    this.usuariosService.fazerLogin(this.userLogin).subscribe(idUser =>{
-        this.route.navigate(['/dashboard', idUser]);
-    }, err=>{
-      this.mensagem = err.error.message;
-      this.route.navigate(['/login', this.mensagem]);
-      }
-    );
+    this.authService.fazerLogin(this.userLogin);
+    this.mensagem = this.route.snapshot.params.mensagem;
+    this.router.navigate(['/login', {mensagem : this.mensagem}]);
+
   }
 }

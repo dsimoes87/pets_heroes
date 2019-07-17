@@ -19,7 +19,7 @@ import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
     EditUsuarioComponent
   ],
   imports: [
-  CommonModule,
+CommonModule,
   AppRoutingModule,
   HttpClientModule,
   FormsModule
@@ -29,8 +29,7 @@ import { EditUsuarioComponent } from './edit-usuario/edit-usuario.component';
     FormloginComponent
   ],
   providers:[
-    UsuariosService,
-    FormloginComponent
+    UsuariosService
   ]
 })
 export class UsuariosModule { }

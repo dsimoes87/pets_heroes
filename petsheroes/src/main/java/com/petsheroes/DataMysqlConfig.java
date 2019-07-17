@@ -19,7 +19,7 @@ public class DataMysqlConfig {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/petsheroes");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setPassword("dr@072019");
 		return dataSource;
 	}
 	@Bean
