@@ -23,7 +23,7 @@ export class AuthService {
     }, err=>{
     this.loginEmmiter.emit(false);
     this.mensagem = err.error.message;
-    this.route.navigate(['/login', {mensagem : this.mensagem}]);
+    this.route.navigate(['/login', this.mensagem]);
     }
     );
   }

@@ -13,11 +13,10 @@ export class FormloginComponent implements OnInit {
   mensagem;
   constructor(private authService : AuthService, private route: ActivatedRoute, private router: Router) { }
   ngOnInit() {
+    this.mensagem = this.route.snapshot.paramMap.get('mensagem');
   }
   fazerLogin(){
     this.authService.fazerLogin(this.userLogin);
-    this.mensagem = this.route.snapshot.params.mensagem;
-    this.router.navigate(['/login', {mensagem : this.mensagem}]);
-
+    this.ngOnInit();
   }
 }

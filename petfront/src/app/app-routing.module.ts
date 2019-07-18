@@ -23,6 +23,10 @@ const routes: Routes = [
     component: FormloginComponent
   },
   {
+    path: 'login/:mensagem',
+    component: FormloginComponent
+  },
+  {
     path: 'dashboard/:idUser',
     component: DashboardComponent,
     canActivate: [UserGuard]
